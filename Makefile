@@ -21,6 +21,11 @@ clean:
 	rm -rf build
 	rm -rf dist
 
+## Build 
+build: 
+	pip-compile --resolver=backtracking --output-file=requirements.txt pyproject.toml
+	pip-compile --resolver=backtracking --extra=dev --output-file=requirements-dev.txt pyproject.toml
+
 ## Lint using ruff
 ruff:
 	ruff .
